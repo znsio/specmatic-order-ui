@@ -5,7 +5,7 @@
 plugins {
     id 'java'
     id 'maven-publish'
-    id "org.jetbrains.kotlin.jvm" version "1.4.21-2"
+    id "org.jetbrains.kotlin.jvm" version "1.5.10"
     id 'application'
 }
 
@@ -40,9 +40,6 @@ dependencies {
     implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8'
     implementation "org.jetbrains.kotlin:kotlin-reflect"
 
-    testImplementation 'org.jetbrains.kotlin:kotlin-test-junit5'
-    testImplementation "org.jetbrains.kotlin:kotlin-test"
-
     testImplementation('in.specmatic:specmatic-core:0.28.1')
 
     testImplementation(
@@ -51,7 +48,6 @@ dependencies {
     )
 
     testImplementation 'org.junit.jupiter:junit-jupiter:5.6.0'
-    testImplementation 'org.jetbrains.kotlin:kotlin-test-junit'
 
     testRuntime('org.junit.jupiter:junit-jupiter-engine:5.4.2')
 }

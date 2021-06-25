@@ -12,8 +12,8 @@ import org.springframework.web.client.postForEntity
 import `in`.specmatic.stub.ContractStub
 import `in`.specmatic.stub.createStub
 import org.json.JSONArray
+import org.junit.jupiter.api.Assertions.assertEquals
 import java.net.URI
-import kotlin.test.assertEquals
 
 class APITests {
     @Test
