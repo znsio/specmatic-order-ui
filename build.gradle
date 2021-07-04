@@ -5,7 +5,7 @@
 plugins {
     id 'java'
     id 'maven-publish'
-    id "org.jetbrains.kotlin.jvm" version "1.4.21-2"
+    id "org.jetbrains.kotlin.jvm" version "1.5.20"
     id 'application'
 }
 
@@ -40,10 +40,7 @@ dependencies {
     implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8'
     implementation "org.jetbrains.kotlin:kotlin-reflect"
 
-    testImplementation 'org.jetbrains.kotlin:kotlin-test-junit5'
-    testImplementation "org.jetbrains.kotlin:kotlin-test"
-
-    testImplementation('in.specmatic:specmatic-core:0.28.1')
+    testImplementation('in.specmatic:specmatic-core:0.28.4')
 
     testImplementation(
             'org.assertj:assertj-core:3.12.2',
