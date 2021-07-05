@@ -37,20 +37,19 @@ class WebsiteAPI {
         val result = getFromAPI("/products?type=$type")
         val products = JSONArray(result)
 
-        return 0.until(products.length()).map { products.getJSONObject(it) }.filter { product ->
-            val id = product.getInt("id")
-            val count = getFromAPI("/inventory?productid=$id").toInt()
-
-            count > 0
-        }.map {
-            ProductDetails(it)
+        return 0.until(products.length()).map {
+            ProductDetails(products.getJSONObject(it))
         }
     }
 
     private fun getFromAPI(url: String): String = RestTemplate().getForEntity(URI.create("$base$url"), String::class.java).body?.trim() ?: ""
 }
 
-private fun callCreateOrderAPI(order: String): Int = writeJSONToAPI(API.CREATE_ORDER, order)?.toInt() ?: error("No order id received in response to create request.")
+private fun callCreateOrderAPI(order: String): Int {
+    return writeJSONToAPI(API.CREATE_ORDER, order)?.let {
+        JSONObject(it).getInt("id")
+    } ?: error("No order id received in response to create request.")
+}
 
 private fun writeJSONToAPI(api: API, body: String): String? {
     val username = "jamie"

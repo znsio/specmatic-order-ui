@@ -42,7 +42,7 @@ class APITests {
         assertEquals(HttpStatus.OK, responseEntity.statusCode)
         val jsonResponse = JSONObject(responseEntity.body)
         assertEquals("success", jsonResponse.getString("status"))
-        assertEquals(12, jsonResponse.getInt("id"))
+        assertEquals(10, jsonResponse.getInt("id"))
     }
 
     private fun authenticatedJsonRequest(url: URI, requestBody: String): RequestEntity<String> {
