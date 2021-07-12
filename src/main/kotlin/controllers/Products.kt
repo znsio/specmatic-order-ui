@@ -25,8 +25,8 @@ data class ProductDetails(val id: Int, val name: String) {
 
 @RestController
 class WebsiteAPI {
-    @PostMapping("/addOrder", produces = [MediaType.APPLICATION_JSON_VALUE])
-    fun addOrder(@RequestBody order: String): CreationStatus {
+    @PostMapping("/orders", produces = [MediaType.APPLICATION_JSON_VALUE])
+    fun createOrder(@RequestBody order: String): CreationStatus {
         val order = JSONObject(order)
         order.put("status", "pending")
         return CreationStatus(id = callCreateOrderAPI(order.toString()), status="success")
