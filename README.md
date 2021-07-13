@@ -2,7 +2,7 @@
 
 ![HTML client talks to client API which talks to backend api](specmatic-sample-architecture.svg)
 
-BFF = Backend For Frontend, the API invoked by the HTTP calls in the client HTML page.
+BFF = Backend For Frontend, the API invoked by the HTTP calls in the client HTML page (Website UI)
 
 This project contains a small website UI, and an accompanying BFF (backend for frontend).
 
