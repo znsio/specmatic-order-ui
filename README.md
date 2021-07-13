@@ -2,6 +2,8 @@
 
 ![HTML client talks to client API which talks to backend api](specmatic-sample-architecture.svg)
 
+BFF = Backend For Frontend, the API invoked by the HTTP calls in the client HTML page.
+
 This project contains a small website UI, and an accompanying BFF (backend for frontend).
 
 The BFF talks to the [backend API](https://github.com/znsio/specmatic-order-api).
