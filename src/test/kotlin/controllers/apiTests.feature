@@ -1,6 +1,6 @@
 Feature: Tests
 
-  Background:
+  Scenario Outline: Search for available products
     Given url 'http://localhost:9000/_specmatic/expectations'
     And request
     """
@@ -34,7 +34,19 @@ Feature: Tests
     When method post
     Then status 200
 
-    When request
+    Given url 'http://localhost:8080/findAvailableProducts?type=' + <productType>
+    When method get
+    Then status 200
+    And assert response[0]["id"] == <productId>
+    And assert response[0]["name"] == <productName>
+
+    Examples:
+      | productType | productId | productName  |
+      | "gadget"    | 10        | "XYZ Laptop" |
+
+  Scenario Outline: Create order
+    Given url 'http://localhost:9000/_specmatic/expectations'
+    And request
     """
       {
         "mock-http-request": {
@@ -61,21 +73,7 @@ Feature: Tests
     When method post
     Then status 200
 
-    Given url 'http://localhost:8080'
-
-  Scenario Outline: Search for available products
-    Given path '/findAvailableProducts?type=' + <productType>
-    When method get
-    Then status 200
-    And assert response[0]["id"] == <productId>
-    And assert response[0]["name"] == <productName>
-
-    Examples:
-      | productType | productId | productName  |
-      | "gadget"    | 10        | "XYZ Laptop" |
-
-  Scenario Outline: Create order
-    Given path '/orders'
+    Given url 'http://localhost:8080/orders'
     And request {"productid": <productId>, "count": <count>}
     When method post
     Then status 200
