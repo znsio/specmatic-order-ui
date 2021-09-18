@@ -1,6 +1,66 @@
 Feature: Tests
 
   Background:
+    Given url 'http://localhost:9000/_specmatic/expectations'
+    And request
+    """
+      {
+        "http-request": {
+          "method": "GET",
+          "path": "/products",
+          "query": {
+            "type": "gadget"
+          }
+        },
+        "http-response": {
+          "status": 200,
+          "body": [
+            {
+              "name": "XYZ Laptop",
+              "type": "gadget",
+              "id": 10,
+              "inventory": 10
+            },
+            {
+              "name": "XYZ Phone",
+              "type": "gadget",
+              "id": 20,
+              "inventory": 0
+            }
+          ]
+        }
+      }
+    """
+    When method post
+    Then status 200
+
+    When request
+    """
+      {
+        "mock-http-request": {
+          "method": "POST",
+          "path": "/orders",
+          "headers": {
+            "Authenticate": "(string)"
+          },
+          "body": {
+            "productid": 10,
+            "count": 1,
+            "status": "pending"
+          }
+        },
+
+        "mock-http-response": {
+          "status": 201,
+          "body": {
+            "id": 10
+          }
+        }
+      }
+    """
+    When method post
+    Then status 200
+
     Given url 'http://localhost:8080'
 
   Scenario Outline: Search for available products
