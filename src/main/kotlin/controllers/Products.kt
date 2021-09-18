@@ -2,10 +2,7 @@ package controllers
 
 import org.json.JSONArray
 import org.json.JSONObject
-import org.springframework.http.HttpHeaders
-import org.springframework.http.HttpMethod
-import org.springframework.http.MediaType
-import org.springframework.http.RequestEntity
+import org.springframework.http.*
 import org.springframework.web.bind.annotation.*
 import org.springframework.web.client.RestTemplate
 import java.net.URI
@@ -33,12 +30,18 @@ class WebsiteAPI {
     }
 
     @GetMapping("/findAvailableProducts", produces = [MediaType.APPLICATION_JSON_VALUE])
-    fun findAvailableProducts(@RequestParam(name="type", required=true) type: String): List<ProductDetails> {
-        val result = getFromAPI("/products?type=$type")
-        val products = JSONArray(result)
+    fun findAvailableProducts(@RequestParam(name="type", required=true) type: String): ResponseEntity<List<ProductDetails>> {
+        try {
+            val result = getFromAPI("/products?type=$type")
+            val products = JSONArray(result)
 
-        return 0.until(products.length()).map {
-            ProductDetails(products.getJSONObject(it))
+            val availableProducts = 0.until(products.length()).map {
+                ProductDetails(products.getJSONObject(it))
+            }
+
+            return ResponseEntity(availableProducts, HttpStatus.OK)
+        } catch(e: Throwable) {
+            return ResponseEntity(HttpStatus.NOT_FOUND)
         }
     }
 
