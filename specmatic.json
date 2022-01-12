@@ -4,7 +4,7 @@
       "provider": "git",
       "repository": "https://github.com/znsio/specmatic-order-contracts.git",
       "stub": [
-        "in/specmatic/examples/store/api_order_v1.spec",
+        "in/specmatic/examples/store/api_order_v1.yaml",
         "in/specmatic/examples/store/auth.spec"
       ]
     }
