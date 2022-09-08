@@ -1,6 +1,7 @@
 Feature: Tests
 
   Scenario Outline: Search for available products
+    # ARRANGE
     Given url 'http://localhost:9000/_specmatic/expectations'
     And request
     """
@@ -34,9 +35,12 @@ Feature: Tests
     When method post
     Then status 200
 
+    # ACT
     Given url 'http://localhost:8080/findAvailableProducts?type=' + <productType>
     When method get
     Then status 200
+
+    # ASSERT
     And assert response[0]["id"] == <productId>
     And assert response[0]["name"] == <productName>
 
@@ -92,7 +96,7 @@ Feature: Tests
         },
 
         "mock-http-response": {
-          "status": 201,
+          "status": 200,
           "body": {
             "id": 10
           }
