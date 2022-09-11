@@ -46,8 +46,6 @@ dependencies {
     )
 
     testImplementation 'org.junit.jupiter:junit-jupiter:5.6.0'
-
-    testRuntime('org.junit.jupiter:junit-jupiter-engine:5.4.2')
 }
 
 sourceSets {
@@ -61,7 +59,9 @@ sourceSets {
 }
 
 test {
-    useJUnitPlatform()
+    useJUnitPlatform {
+        includeEngines("junit-jupiter")
+    }
 }
 
 group = 'com.store'

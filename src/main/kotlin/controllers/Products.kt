@@ -24,9 +24,9 @@ data class ProductDetails(val id: Int, val name: String) {
 class WebsiteAPI {
     @PostMapping("/orders", produces = [MediaType.APPLICATION_JSON_VALUE])
     fun createOrder(@RequestBody order: String): CreationStatus {
-        val order = JSONObject(order)
-        order.put("status", "pending")
-        return CreationStatus(id = callCreateOrderAPI(order.toString()), status="success")
+        val orderJSON = JSONObject(order)
+        orderJSON.put("status", "pending")
+        return CreationStatus(id = callCreateOrderAPI(orderJSON.toString()), status="success")
     }
 
     @GetMapping("/findAvailableProducts", produces = [MediaType.APPLICATION_JSON_VALUE])
@@ -76,6 +76,6 @@ fun getAuthToken(username: String, password: String): String {
 
     val request = RequestEntity("{\"username\": \"$username\", \"password\": \"$password\"}", headers, HttpMethod.POST, uri)
     val response = RestTemplate().exchange(request, String::class.java)
-    return response.body
+    return response.body ?: ""
 }
 
