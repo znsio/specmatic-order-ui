@@ -51,7 +51,7 @@ dependencies {
 sourceSets {
     test {
         resources {
-            srcDir file('src/test/kotlin')
+            srcDir file('src/test/java')
             exclude '**/*.java'
             exclude '**/*.kt}'
         }
