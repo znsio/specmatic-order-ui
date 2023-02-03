@@ -37,7 +37,7 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-test:2.2.4.RELEASE'
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf:2.2.4.RELEASE'
 
-    testImplementation('in.specmatic:specmatic-core:0.50.0')
+    testImplementation('in.specmatic:specmatic-core:0.59.0')
     implementation 'com.intuit.karate:karate-junit5:1.0.1'
 
     testImplementation(
