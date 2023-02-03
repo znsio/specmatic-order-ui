@@ -7,7 +7,10 @@ import org.junit.jupiter.api.BeforeAll;
 import org.springframework.boot.SpringApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 
-import static in.specmatic.stub.API.createStub;
+import java.util.Arrays;
+import java.util.List;
+
+import static in.specmatic.stub.API.createStubFromContracts;
 
 public class APITests {
 
@@ -24,7 +27,9 @@ public class APITests {
     @BeforeAll
     public static void setUp() {
         context = SpringApplication.run(Application.class);
-        stub = createStub(SPECMATIC_STUB_HOST, SPECMATIC_STUB_PORT);
+        List<String> contracts = Arrays.asList("/home/runner/work/specmatic-order-ui/specmatic-order-ui/contracts/in/specmatic/examples/store/api_order_v1.yaml");
+        List<String> data = Arrays.asList("/home/runner/work/specmatic-order-ui/specmatic-order-ui/contracts/in/specmatic/examples/store/api_order_v1_data");
+        stub = createStubFromContracts(contracts, data, SPECMATIC_STUB_HOST, SPECMATIC_STUB_PORT);
     }
 
     @AfterAll
