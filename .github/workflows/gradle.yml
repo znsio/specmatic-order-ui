@@ -16,10 +16,12 @@ jobs:
     - uses: actions/checkout@v2
       with:
         path: main
+    - name: Create contract directory
+      run: mkdir /contracts    
     - uses: actions/checkout@v2.1.0
       with:
         repository: znsio/specmatic-order-contracts
-        path: contracts
+        path: /contracts/main
     - name: Grant execute permission for gradlew
       run: pwd
       working-directory: contracts
