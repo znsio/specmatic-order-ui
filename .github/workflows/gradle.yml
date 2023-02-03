@@ -17,14 +17,14 @@ jobs:
       with:
         path: main
     - name: Create contracts directory
-      run: mkdir ../contracts && ls -l ../ && pwd ../  
-#     - uses: actions/checkout@v2.1.0
-#       with:
-#         repository: znsio/specmatic-order-contracts
-#         path: ../contracts/main
+      run: mkdir ../contracts  
+    - uses: actions/checkout@v2.1.0
+      with:
+        repository: znsio/specmatic-order-contracts
+        path: /home/runner/work/specmatic-order-ui/contracts/main
     - name: Grant execute permission for gradlew
-      run: pwd
-      working-directory: contracts
+      run: ls -lRt
+      working-directory: /home/runner/work/specmatic-order-ui/contracts/main
     - name: Set up JDK 1.8
       uses: actions/setup-java@v1
       with:
