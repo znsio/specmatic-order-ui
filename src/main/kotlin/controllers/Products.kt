@@ -55,15 +55,9 @@ private fun callCreateOrderAPI(order: String): Int {
 }
 
 private fun writeJSONToAPI(api: API, body: String): String? {
-    val username = "jamie"
-    val password = "secure"
-
-    val authToken = getAuthToken(username, password)
-
     val uri = URI.create("$base${api.url}")
     val headers = HttpHeaders()
     headers["Content-Type"] = "application/json"
-    headers["Authenticate"] = authToken
     val request = RequestEntity(body, headers, api.method, uri)
     val response = RestTemplate().exchange(request, String::class.java)
     return response.body
