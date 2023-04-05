@@ -5,7 +5,7 @@
 plugins {
     id 'java'
     id 'maven-publish'
-    id "org.jetbrains.kotlin.jvm" version "1.6.20"
+    id "org.jetbrains.kotlin.jvm" version "1.7.20"
     id 'application'
 }
 
@@ -62,6 +62,8 @@ test {
     useJUnitPlatform {
         includeEngines("junit-jupiter")
     }
+
+    testLogging.showStandardStreams = true
 }
 
 group = 'com.store'
