@@ -45,6 +45,11 @@ dependencies {
 }
 
 sourceSets {
+    main {
+        resources {
+            srcDir file('js')
+        }
+    }
     test {
         resources {
             srcDir file('src/test/kotlin')
