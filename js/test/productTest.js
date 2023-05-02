@@ -1,12 +1,13 @@
-var assert = require('assert');
+import { assert } from 'chai';
+import { showProducts } from '../public/product.js';
+
 before(function () {
-    console.log("before");
+    document.body.innerHTML = '<div id="products"></div>';
 });
 
-describe('Array', function () {
-    describe('#indexOf()', function () {
-        it('should return -1 when the value is not present', function () {
-            assert.equal([1, 2, 3].indexOf(4), -1);
-        });
+describe('Fetch products', function () {
+    it('should populate products on load', async function () {
+        await showProducts();
+        assert.equal(1, document.getElementsByClassName('data-row').length);
     });
 });
