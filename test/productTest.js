@@ -1,5 +1,5 @@
 import { assert } from 'chai';
-import { showProducts } from '../public/product.js';
+import { showProducts } from '../src/product.js';
 
 before(function () {
     document.body.innerHTML = '<div id="products"></div>';
