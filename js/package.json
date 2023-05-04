@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "test": "specmatic stub ./test/product-search-bff-api.yaml --data test/data --port 8082 > /dev/null 2>&1 & (sleep 3 && karma start --single-run && kill -9 $(lsof -t -i:8082))"
+    "test": "specmatic stub test/resources/product-search-bff-api.yaml --data test/resources/data --port 8082 > /dev/null 2>&1 & (sleep 3 && karma start --single-run && kill -9 $(lsof -t -i:8082))"
   },
   "devDependencies": {
     "chai": "^4.3.7",

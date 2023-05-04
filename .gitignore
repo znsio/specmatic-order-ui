@@ -6,4 +6,4 @@ build/*
 .idea/*
 .gradle/*
 .qontract
-js/node_modules
+node_modules
