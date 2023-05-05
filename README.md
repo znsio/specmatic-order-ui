@@ -5,6 +5,8 @@
 
 This sample project contains a small static website built using HTML and plain javascript that demonstrates how we can contract driven development and testing of client side/front end by stubbing calls to BFF using specmatic stub option and backend OpenAPI spec. 
 
+Here is the BFF [contract/open api spec](https://github.com/znsio/specmatic-order-contracts/blob/main/in/specmatic/examples/store/api_order_v1.yaml)
+
 ## Definitions
 * BFF: Backend for Front End
 * Domain API: API managing the domain model
@@ -15,8 +17,6 @@ A typical web application might look like this. Specmatic can contract driven de
 
 ![HTML client talks to client API which talks to backend api](specmatic-sample-architecture.svg)
 
-Here is the BFF [contract/open api spec](https://github.com/znsio/specmatic-order-contracts/blob/main/in/specmatic/examples/store/api_order_v1.yaml)
- 
 _The architecture diagram was created using the amazing free online SVG editor at [Vectr](https://vectr.com)._
 
 ## Tech
