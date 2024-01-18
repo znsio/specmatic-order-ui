@@ -5,4 +5,5 @@ lib/*
 build/*
 .idea/*
 .gradle/*
-.qontract
+
+.specmatic
