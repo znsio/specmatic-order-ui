@@ -20,7 +20,7 @@ public class APITests {
 
     @Karate.Test
     public Karate runTests() {
-        return new Karate().path("classpath:controllers/apiTests.feature");
+        return new Karate().relativeTo(APITests.class).path("apiTests.feature");
     }
 
     @BeforeAll
